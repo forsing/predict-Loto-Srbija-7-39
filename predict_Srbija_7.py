@@ -35,7 +35,7 @@ def to_categorical(y, num_classes):
 
 
 df = pd.read_csv(
-    r"/Users/milan/Desktop/GHQ/data/loto7_4554_k8.csv",
+    r"/data/loto7_4554_k8.csv",
     sep=',',
     quoting=1,
     skip_blank_lines=True,
@@ -207,8 +207,8 @@ print("\nPREDICT SRBIJA LOTO 7/39:", predicted_sequence)
 print()
 """
 100 Epoch
-PREDICT SRBIJA LOTO 7/39: [1, 11, 15, 17, 21, 34, 38]
+PREDICT SRBIJA LOTO 7/39: [1, 11, x, y, z, 34, 38]
 
 4554 Epoch
-PREDICT SRBIJA LOTO 7/39: [13, 2, 6, 13, 21, 23, 17]
+PREDICT SRBIJA LOTO 7/39: [13, 2, x, y, z, 23, 17]
 """
