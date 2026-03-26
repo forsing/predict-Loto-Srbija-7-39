@@ -69,7 +69,7 @@ print()
 print("broj kombinacija shape:", sequences.shape)
 print()
 """
-broj kombinacija shape: (4554, 7)
+broj kombinacija shape: (4586, 7)
 """
 
 if sequences.shape[1] != 7:
@@ -93,8 +93,8 @@ print("X shape:", X.shape)
 print("y_raw shape:", y_raw.shape)
 print()
 """
-X shape: (4549, 5, 7)
-y_raw shape: (4549, 7)
+X shape: (4579, 7, 7)
+y_raw shape: (4579, 7)
 """
 
 
@@ -123,8 +123,37 @@ print()
 model.summary()
 print()
 """
-Model: "functional"
-...
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                Output Shape                 Param #   Connected to                  
+==================================================================================================
+ input_1 (InputLayer)        [(None, 7, 7)]               0         []                            
+                                                                                                  
+ masking (Masking)           (None, 7, 7)                 0         ['input_1[0][0]']             
+                                                                                                  
+ lstm (LSTM)                 (None, 128)                  69632     ['masking[0][0]']             
+                                                                                                  
+ dropout (Dropout)           (None, 128)                  0         ['lstm[0][0]']                
+                                                                                                  
+ num_1 (Dense)               (None, 39)                   5031      ['dropout[0][0]']             
+                                                                                                  
+ num_2 (Dense)               (None, 39)                   5031      ['dropout[0][0]']             
+                                                                                                  
+ num_3 (Dense)               (None, 39)                   5031      ['dropout[0][0]']             
+                                                                                                  
+ num_4 (Dense)               (None, 39)                   5031      ['dropout[0][0]']             
+                                                                                                  
+ num_5 (Dense)               (None, 39)                   5031      ['dropout[0][0]']             
+                                                                                                  
+ num_6 (Dense)               (None, 39)                   5031      ['dropout[0][0]']             
+                                                                                                  
+ num_7 (Dense)               (None, 39)                   5031      ['dropout[0][0]']             
+                                                                                                  
+==================================================================================================
+Total params: 104849 (409.57 KB)
+Trainable params: 104849 (409.57 KB)
+Non-trainable params: 0 (0.00 Byte)
+__________________________________________________________________________________________________
 """
 
 
@@ -136,7 +165,7 @@ print()
 print("Broj uzoraka:", X.shape[0])
 print()
 """
-Broj uzoraka: 4549
+Broj uzoraka: 4579
 """
 
 callbacks = [
@@ -157,11 +186,10 @@ model.fit(
 
 print()
 """
-Epoch 1/100 - loss: 24.8857 - num_1_loss: 3.3484 - num_2_loss: 3.5510 - num_3_loss: 3.5787 - num_4_loss: 3.6725 - num_5_loss: 3.6697 - num_6_loss: 3.6065 - num_7_loss: 3.4474
 ...
-Epoch 100/100 - loss: 20.2468 - num_1_loss: 2.4999 - num_2_loss: 2.9494 - num_3_loss: 3.1233 - num_4_loss: 3.1659 - num_5_loss: 3.1073 - num_6_loss: 2.9317 - num_7_loss: 2.4557
-
-1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 80ms/step
+Epoch 580/600 - loss: 8.8665 - num_1_loss: 1.3235 - num_2_loss: 1.2667 - num_3_loss: 1.2342 - num_4_loss: 1.2157 - num_5_loss: 1.2006 - num_6_loss: 1.3195 - num_7_loss: 1.3063
+Epoch 590/600 - loss: 8.7746 - num_1_loss: 1.3172 - num_2_loss: 1.2526 - num_3_loss: 1.2202 - num_4_loss: 1.1979 - num_5_loss: 1.1644 - num_6_loss: 1.3128 - num_7_loss: 1.3094
+Epoch 600/600 - loss: 8.7796 - num_1_loss: 1.3029 - num_2_loss: 1.2280 - num_3_loss: 1.2021 - num_4_loss: 1.2097 - num_5_loss: 1.2033 - num_6_loss: 1.3360 - num_7_loss: 1.2976
 """
 
 
@@ -191,11 +219,8 @@ print()
 print("\nPREDICT SRBIJA LOTO 7/39:", predicted_sequence)
 print()
 """
-100 Epoch
-PREDICT SRBIJA LOTO 7/39: [1, 11, x, y, z, 34, 38]
-
-4554 Epoch
-PREDICT SRBIJA LOTO 7/39: [13, 2, x, y, z, 23, 17]
+600 Epoch
+PREDICT SRBIJA LOTO 7/39: [4, 9, x, y, z, 23, 37]
 """
 
 """
