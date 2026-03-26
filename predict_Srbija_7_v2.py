@@ -41,7 +41,7 @@ def to_categorical(y, num_classes):
 
 
 df = pd.read_csv(
-    r"/Users/4c/Desktop/GHQ/data/loto7_4586_k24.csv",
+    r"/data/loto7_4586_k24.csv",
     sep=',',
     quoting=1,
     skip_blank_lines=True,
